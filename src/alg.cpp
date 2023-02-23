@@ -46,19 +46,15 @@ uint64_t nextPrime(uint64_t value) {
 }
 
 uint64_t sumPrime(uint64_t hbound) {
-    int sum = 0;
-    int flag = 0;
+    uint64_t sum = 0;
 
-    if (hbound < 3) {
-        sum = 0;
-    }
-
-    if (hbound >= 3) {
+    while (hbound != 0) {
+        int flag = 0;
         while (flag == 0) {
             flag += checkPrime(hbound - 1);
             hbound--;
         }
-        sum = hbound + sumPrime(hbound);
+        sum += hbound;
     }
 
     return sum;
